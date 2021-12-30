@@ -30,8 +30,7 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(),
-      endDrawer: const Drawer(),
+      appBar: const HamburgerMenu(),
       body: _widgets.elementAt(_selectedIndex),
       bottomNavigationBar: BottomNavigationBar(
         items: [
