@@ -29,6 +29,7 @@ class _HamburgerMenuState extends State<HamburgerMenu> {
           child: const CustomDrawer(),
         ),
       ],
+      elevation: 0,
     );
   }
 }

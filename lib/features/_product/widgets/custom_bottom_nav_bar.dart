@@ -49,6 +49,7 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
         showSelectedLabels: false,
         onTap: _onItemTapped,
       ),
+      extendBody: true,
     );
   }
 }
