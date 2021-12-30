@@ -1,10 +1,9 @@
-import 'package:akilli_damacana/features/_product/widgets/hamburger_menu.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:akilli_damacana/core/extension/context_extension.dart';
 
-class HamburgerMenu extends StatefulWidget implements PreferredSizeWidget {
-  const HamburgerMenu({Key? key})
+class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
+  const CustomAppBar({Key? key})
       : preferredSize = const Size.fromHeight(kToolbarHeight * 1.2),
         super(key: key);
 
@@ -12,10 +11,10 @@ class HamburgerMenu extends StatefulWidget implements PreferredSizeWidget {
   final Size preferredSize;
 
   @override
-  _HamburgerMenuState createState() => _HamburgerMenuState();
+  _CustomAppBarState createState() => _CustomAppBarState();
 }
 
-class _HamburgerMenuState extends State<HamburgerMenu> {
+class _CustomAppBarState extends State<CustomAppBar> {
   @override
   Widget build(BuildContext context) {
     return AppBar(
@@ -26,7 +25,12 @@ class _HamburgerMenuState extends State<HamburgerMenu> {
       actions: [
         Padding(
           padding: context.paddingNormalHorizontal,
-          child: const CustomDrawer(),
+          child: IconButton(
+            icon: SvgPicture.asset("assets/icons/menu.svg"),
+            onPressed: () {
+              Scaffold.of(context).openEndDrawer();
+            },
+          ),
         ),
       ],
       elevation: 0,

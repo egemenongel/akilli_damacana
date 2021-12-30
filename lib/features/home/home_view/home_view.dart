@@ -1,5 +1,5 @@
 import 'package:akilli_damacana/core/extension/context_extension.dart';
-import 'package:akilli_damacana/features/_product/constants/compay_logos.dart';
+import 'package:akilli_damacana/features/_product/constants/company_logos.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatelessWidget {

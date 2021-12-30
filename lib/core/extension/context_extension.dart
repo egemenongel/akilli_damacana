@@ -40,6 +40,12 @@ extension PaddingExtensionSymmeric on BuildContext {
       EdgeInsets.symmetric(vertical: highValue);
 }
 
+extension RadiusExtension on BuildContext {
+  Radius get lowRadius => Radius.circular(width * 0.02);
+  Radius get normalRadius => Radius.circular(width * 0.05);
+  Radius get highRadius => Radius.circular(width * 0.1);
+}
+
 extension ThemeExtension on BuildContext {
   ThemeData get theme => Theme.of(this);
   TextTheme get textTheme => theme.textTheme;

@@ -1,5 +1,8 @@
 import 'package:akilli_damacana/features/_product/widgets/custom_app_bar.dart';
+import 'package:akilli_damacana/features/_product/widgets/hamburger_menu.dart';
+import 'package:akilli_damacana/features/home/cart/cart_view.dart';
 import 'package:akilli_damacana/features/home/home_view/home_view.dart';
+import 'package:akilli_damacana/features/home/settings/settings_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -19,19 +22,16 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
   }
 
   static const List<Widget> _widgets = [
-    Center(
-      child: Text("Cart"),
-    ),
+    CartView(),
     HomeView(),
-    Center(
-      child: Text("Settings"),
-    ),
+    SettingsView(),
   ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const HamburgerMenu(),
+      appBar: const CustomAppBar(),
       body: _widgets.elementAt(_selectedIndex),
+      endDrawer: const HamburgerMenu(),
       bottomNavigationBar: BottomNavigationBar(
         items: [
           BottomNavigationBarItem(
