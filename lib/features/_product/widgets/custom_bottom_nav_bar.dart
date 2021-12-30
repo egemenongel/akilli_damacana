@@ -1,14 +1,37 @@
+import 'package:akilli_damacana/features/home/home_view/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class HomeView extends StatelessWidget {
-  const HomeView({Key? key}) : super(key: key);
+class CustomBottomNavBar extends StatefulWidget {
+  const CustomBottomNavBar({Key? key}) : super(key: key);
 
+  @override
+  _CustomBottomNavBarState createState() => _CustomBottomNavBarState();
+}
+
+class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
+  int _selectedIndex = 0;
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
+  static const List<Widget> _widgets = [
+    Center(
+      child: Text("Cart"),
+    ),
+    HomeView(),
+    Center(
+      child: Text("Settings"),
+    ),
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
       endDrawer: const Drawer(),
+      body: _widgets.elementAt(_selectedIndex),
       bottomNavigationBar: BottomNavigationBar(
         items: [
           BottomNavigationBarItem(
@@ -24,6 +47,7 @@ class HomeView extends StatelessWidget {
         ],
         showUnselectedLabels: false,
         showSelectedLabels: false,
+        onTap: _onItemTapped,
       ),
     );
   }
