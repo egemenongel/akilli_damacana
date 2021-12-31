@@ -25,8 +25,8 @@ class HomeView extends StatelessWidget {
             child: Container(
                 child: Image.asset(ImagePaths.companyLogos[index]),
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(
-                    context.lowValue,
+                  borderRadius: BorderRadius.all(
+                    context.lowRadius,
                   ),
                   gradient: const RadialGradient(
                     stops: [0, 1],

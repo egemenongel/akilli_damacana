@@ -22,8 +22,8 @@ class BlueElevatedButton extends StatelessWidget {
           context.paddingNormal,
         ),
         shape: MaterialStateProperty.all<OutlinedBorder>(RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(
-            context.lowValue,
+          borderRadius: BorderRadius.all(
+            context.lowRadius,
           ),
         )),
       ),

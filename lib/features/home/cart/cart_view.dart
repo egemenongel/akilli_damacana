@@ -73,8 +73,8 @@ class CartView extends StatelessWidget {
                                       ),
                                     ),
                                     decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(
-                                        context.lowValue,
+                                      borderRadius: BorderRadius.all(
+                                        context.lowRadius,
                                       ),
                                       gradient: const RadialGradient(
                                         stops: [0, 1],
@@ -215,7 +215,9 @@ class CartView extends StatelessWidget {
                     child: Container(
                       decoration: BoxDecoration(
                         color: context.colors.primary,
-                        borderRadius: BorderRadius.circular(context.lowValue),
+                        borderRadius: BorderRadius.all(
+                          context.lowRadius,
+                        ),
                       ),
                       child: Center(
                           child: Text(

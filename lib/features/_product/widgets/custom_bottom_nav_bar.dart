@@ -50,6 +50,7 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
         onTap: _onItemTapped,
       ),
       extendBody: true,
+      resizeToAvoidBottomInset: false,
     );
   }
 }
