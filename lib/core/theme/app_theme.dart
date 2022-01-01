@@ -14,6 +14,7 @@ ThemeData appTheme = ThemeData.from(
     listTileTheme: const ListTileThemeData(
       textColor: Color(0xffffffff),
       iconColor: Color(0xffffffff),
+      selectedTileColor: Color(0xff1D91D2),
     ),
     appBarTheme: const AppBarTheme(),
     bottomNavigationBarTheme: const BottomNavigationBarThemeData(
