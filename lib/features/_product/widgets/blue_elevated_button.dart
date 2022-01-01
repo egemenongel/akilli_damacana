@@ -28,7 +28,7 @@ class BlueElevatedButton extends StatelessWidget {
         )),
       ),
       child: child,
-      onPressed: () {},
+      onPressed: onPressed,
     );
   }
 }
