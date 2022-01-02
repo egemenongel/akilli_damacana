@@ -9,11 +9,15 @@ class BorderedFormField extends StatelessWidget {
     required this.labelText,
     required this.assetPath,
     required this.textInputAction,
+    this.textEditingController,
+    this.isObscured,
   }) : super(key: key);
   final TextInputType keyboardType;
   final String labelText;
   final String assetPath;
   final TextInputAction textInputAction;
+  final TextEditingController? textEditingController;
+  final bool? isObscured;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
@@ -45,11 +49,13 @@ class BorderedFormField extends StatelessWidget {
           ),
         ),
       ),
+      controller: textEditingController,
       textInputAction: textInputAction,
       keyboardType: keyboardType,
       style: context.textTheme.headline6!.copyWith(
         color: context.colors.onSecondary,
       ),
+      obscureText: isObscured ?? false,
     );
   }
 }
