@@ -1,5 +1,6 @@
 import 'package:akilli_damacana/core/theme/app_theme.dart';
 import 'package:akilli_damacana/features/_product/widgets/custom_bottom_nav_bar.dart';
+import 'package:akilli_damacana/features/auth/login/login_view.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,8 +14,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Akıllı Damacana',
       theme: appTheme,
-      home: const CustomBottomNavBar(),
       debugShowCheckedModeBanner: false,
+      routes: {
+        "/": (context) => LoginView(),
+        "/home": (context) => const CustomBottomNavBar(),
+      },
     );
   }
 }
