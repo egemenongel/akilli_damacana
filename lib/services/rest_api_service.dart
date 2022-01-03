@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'dart:developer';
 import 'dart:io';
 import 'package:akilli_damacana/core/constants/api_constants.dart';
-import 'package:akilli_damacana/features/home/home_view/products_list_model.dart';
+import 'package:akilli_damacana/features/home/home_view/model/products_list_model.dart';
 import 'package:akilli_damacana/features/home/profile/model/profile_model.dart';
 import 'package:akilli_damacana/features/auth/login/model/login_response_model.dart';
 import 'package:akilli_damacana/services/shared_preferences.dart';
@@ -33,6 +33,31 @@ class RestApiService {
       return userModel;
     } else {
       return response.statusCode;
+    }
+  }
+
+  Future fetchProducts() async {
+    try {
+      final String token = await sharedService.getToken();
+      final Map<String, String> headers = {
+        "Accept": "application/json",
+        "Authorization": "Bearer " + token.toString()
+      };
+
+      final response = await http.get(
+        Uri.parse(ApiConstants.productsList),
+        headers: headers,
+      );
+
+      if (response.statusCode == 200) {
+        var productList = productModelFromJson(response.body);
+
+        return productList;
+      } else {
+        log("${response.statusCode}");
+      }
+    } catch (e) {
+      HttpException("$e");
     }
   }
 }
