@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 ThemeData appTheme = ThemeData.from(
   colorScheme: ThemeData().colorScheme.copyWith(
@@ -11,6 +12,7 @@ ThemeData appTheme = ThemeData.from(
         onBackground: const Color(0xffffffff),
       ),
 ).copyWith(
+    textTheme: GoogleFonts.robotoTextTheme(),
     listTileTheme: const ListTileThemeData(
       textColor: Color(0xffffffff),
       iconColor: Color(0xffffffff),
