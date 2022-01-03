@@ -26,14 +26,6 @@ class _ProfileViewState extends State<ProfileView> {
     profile = apiService.fetchProfile();
   }
 
-  @override
-  void dispose() {
-    _heightController.dispose();
-    _ageController.dispose();
-    _weightController.dispose();
-    super.dispose();
-  }
-
   updateInfo(UserProfile userProfile) {
     _heightController.text = "${userProfile.height}";
     _ageController.text = "${userProfile.age}";
@@ -55,9 +47,9 @@ class _ProfileViewState extends State<ProfileView> {
 
           var model = snapshot.data as ProfileInfoModel;
           UserProfile userProfile = model.data!.user!;
-          //  _heightController.text = "${userProfile.height}";
-          //         _ageController.text = "${userProfile.age}";
-          //         _weightController.text = "${userProfile.weight}";
+          _heightController.text = "${userProfile.height}";
+          _ageController.text = "${userProfile.age}";
+          _weightController.text = "${userProfile.weight}";
           return SingleChildScrollView(
             child: Container(
               height: context.screenHeight,
