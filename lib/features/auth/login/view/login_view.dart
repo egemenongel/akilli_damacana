@@ -8,9 +8,7 @@ import 'package:akilli_damacana/features/auth/login/model/login_response_model.d
 
 import 'package:akilli_damacana/services/rest_api_service.dart';
 import 'package:akilli_damacana/services/shared_preferences.dart';
-
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginView extends StatefulWidget {
   LoginView({Key? key}) : super(key: key);
@@ -46,19 +44,40 @@ class _LoginViewState extends State<LoginView> {
   Widget build(BuildContext context) {
     final isKeyboardOpen = context.mediaQuery.viewInsets.bottom != 0;
     return Scaffold(
-      body: Padding(
+      body: Container(
+        decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              colors: [
+                Color(0xffA1D2F1),
+                Color(0xffE2F2FC),
+                Color(0xff9FD1F1),
+              ],
+              stops: [
+                0,
+                0.3167,
+                1,
+              ],
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+            ),
+            image: DecorationImage(
+                fit: BoxFit.cover,
+                image: AssetImage(
+                  "assets/images/girissonrasi.png",
+                ))),
         padding: EdgeInsets.symmetric(
             horizontal: context.highValue, vertical: context.normalValue),
         child: Form(
           child: Column(
             children: [
-              isKeyboardOpen == false
-                  ? const Spacer(
-                      flex: 92,
-                    )
-                  : const Spacer(
-                      flex: 42,
-                    ),
+              Expanded(
+                  flex: isKeyboardOpen == false ? 52 : 42,
+                  child: Image.asset(
+                    "assets/images/girislogosu.png",
+                  )),
+              const Spacer(
+                flex: 32,
+              ),
               Expanded(
                 flex: 15,
                 child: BorderedFormField(
