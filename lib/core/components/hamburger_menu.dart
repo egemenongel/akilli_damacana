@@ -33,6 +33,8 @@ class HamburgerMenu extends StatelessWidget {
                       trailing: IconButton(
                           onPressed: () {
                             shared.deleteToken();
+                            Navigator.popUntil(
+                                context, (route) => route.isFirst);
                           },
                           icon: const Icon(Icons.clear)),
                     ),
