@@ -1,15 +1,16 @@
 import 'dart:developer';
 
+import 'package:akilli_damacana/core/components/bordered_form_field.dart';
+import 'package:akilli_damacana/core/components/white_elevated_button.dart';
 import 'package:akilli_damacana/core/extension/context_extension.dart';
-import 'package:akilli_damacana/features/_product/widgets/bordered_form_field.dart';
-import 'package:akilli_damacana/features/_product/widgets/custom_bottom_nav_bar.dart';
-import 'package:akilli_damacana/features/_product/widgets/white_elevated_button.dart';
+
 import 'package:akilli_damacana/features/auth/login/model/login_response_model.dart';
 
 import 'package:akilli_damacana/services/rest_api_service.dart';
 import 'package:akilli_damacana/services/shared_preferences.dart';
 
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginView extends StatefulWidget {
   LoginView({Key? key}) : super(key: key);
@@ -22,9 +23,23 @@ class LoginView extends StatefulWidget {
 class _LoginViewState extends State<LoginView> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+  String? token;
   @override
   void initState() {
     super.initState();
+    rememberMe();
+  }
+
+  rememberMe() async {
+    var token = await widget.sharedService.getToken();
+    if (token != null) {
+      Future(() {
+        Navigator.pushReplacementNamed(
+          context,
+          "/home",
+        );
+      });
+    }
   }
 
   @override
@@ -78,7 +93,16 @@ class _LoginViewState extends State<LoginView> {
                     Expanded(
                       child: WhiteElevatedButton(
                         child: const Text("Giriş Yap"),
-                        onPressed: () {},
+                        onPressed: () async {
+                          var response = await widget.restApiService.login(
+                              emailController.text, passwordController.text);
+                          if (response is UserModel) {
+                            Navigator.pushNamed(context, "/home",
+                                arguments: response);
+                          } else {
+                            log("$response");
+                          }
+                        },
                         padding: context.paddingNormal,
                       ),
                     ),
