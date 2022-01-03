@@ -2,8 +2,8 @@ import 'dart:convert';
 import 'dart:developer';
 import 'dart:io';
 import 'package:akilli_damacana/core/constants/api_constants.dart';
+import 'package:akilli_damacana/features/home/cart/model/cart_model.dart';
 import 'package:akilli_damacana/features/home/home_view/model/products_list_model.dart';
-import 'package:akilli_damacana/features/home/profile/model/profile_model.dart';
 import 'package:akilli_damacana/features/auth/login/model/login_response_model.dart';
 import 'package:akilli_damacana/services/shared_preferences.dart';
 
@@ -29,7 +29,7 @@ class RestApiService {
       final userModel = userModelFromJson(response.body);
 
       sharedService.setToken(userModel.data.token);
-      print(userModel.data.token);
+      log(userModel.data.token);
       return userModel;
     } else {
       return response.statusCode;
@@ -53,6 +53,31 @@ class RestApiService {
         var productList = productModelFromJson(response.body);
 
         return productList;
+      } else {
+        log("${response.statusCode}");
+      }
+    } catch (e) {
+      HttpException("$e");
+    }
+  }
+
+  Future createOrder(CartModel cart) async {
+    try {
+      final String token = await sharedService.getToken();
+      final Map<String, String> headers = {
+        "Accept": "application/json",
+        "Content-Type": "application/json",
+        "Authorization": "Bearer " + token.toString(),
+      };
+
+      final response = await http.post(
+        Uri.parse(ApiConstants.orderCreate),
+        headers: headers,
+        body: jsonEncode(cart),
+      );
+
+      if (response.statusCode == 200) {
+        log(response.body);
       } else {
         log("${response.statusCode}");
       }

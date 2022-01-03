@@ -1,14 +1,14 @@
 import 'package:akilli_damacana/core/components/blue_elevated_button.dart';
 import 'package:akilli_damacana/features/home/cart/viewmodel/cart_viewmodel.dart';
 import 'package:akilli_damacana/core/extension/context_extension.dart';
+import 'package:akilli_damacana/services/rest_api_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class CartView extends StatelessWidget {
-  const CartView({Key? key}) : super(key: key);
-
+  CartView({Key? key}) : super(key: key);
+  final apiService = RestApiService();
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -262,15 +262,19 @@ class CartView extends StatelessWidget {
     return Row(
       children: [
         Expanded(
-          child: BlueElevatedButton(
-              child: Text(
-                "SİPARİŞİ ONAYLA",
-                style: context.textTheme.headline6!.copyWith(
-                  color: context.colors.primary,
-                  fontWeight: FontWeight.w900,
+          child: Consumer<CartViewModel>(builder: (_, _cartViewModel, __) {
+            return BlueElevatedButton(
+                child: Text(
+                  "SİPARİŞİ ONAYLA",
+                  style: context.textTheme.headline6!.copyWith(
+                    color: context.colors.primary,
+                    fontWeight: FontWeight.w900,
+                  ),
                 ),
-              ),
-              onPressed: () {}),
+                onPressed: () {
+                  apiService.createOrder(_cartViewModel.order());
+                });
+          }),
         ),
       ],
     );

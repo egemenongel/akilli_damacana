@@ -1,3 +1,4 @@
+import 'package:akilli_damacana/features/home/cart/model/cart_model.dart';
 import 'package:akilli_damacana/features/home/home_view/model/products_list_model.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -40,5 +41,13 @@ class CartViewModel extends ChangeNotifier {
     for (var order in cart) {
       total += order.price! * order.count!;
     }
+  }
+
+  order() {
+    List<CartProducts> cartItems = [];
+    for (var product in cart) {
+      cartItems.add(CartProducts.fromJson(product.toJson()));
+    }
+    return CartModel(cart: cartItems, price: total);
   }
 }
