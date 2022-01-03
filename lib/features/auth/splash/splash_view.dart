@@ -22,7 +22,7 @@ class _SplashViewState extends State<SplashView> with TickerProviderStateMixin {
         percent += 1;
         if (percent >= 100) {
           timer!.cancel();
-          Navigator.push(
+          Navigator.pushReplacement(
             context,
             PageRouteBuilder(
               pageBuilder: (c, a1, a2) => LoginView(),

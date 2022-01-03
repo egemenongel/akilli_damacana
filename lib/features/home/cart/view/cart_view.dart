@@ -102,11 +102,16 @@ class CartView extends StatelessWidget {
                 Expanded(
                   flex: 2,
                   child: Container(
-                      child: ClipRRect(
-                        child: Image.asset(
-                          "${_cartViewModel.cart[index].photoUrl}",
-                        ),
-                      ),
+                      padding: context.paddingNormal,
+                      height: 130,
+                      width: 130,
+                      child: Center(
+                          child: Text("${_cartViewModel.cart[index].brand}")),
+                      //  ClipRRect(
+                      //   child: Image.asset(
+                      //     "${_cartViewModel.cart[index].photoUrl}",
+                      //   ),
+                      // ),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.all(
                           context.lowRadius,
