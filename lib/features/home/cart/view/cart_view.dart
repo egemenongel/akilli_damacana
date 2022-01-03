@@ -3,6 +3,7 @@ import 'package:akilli_damacana/features/home/cart/viewmodel/cart_viewmodel.dart
 import 'package:akilli_damacana/core/extension/context_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class CartView extends StatelessWidget {
@@ -73,6 +74,7 @@ class CartView extends StatelessWidget {
             "SEPETİM",
             style: context.textTheme.headline6!.copyWith(
               color: context.colors.onBackground,
+              fontWeight: FontWeight.w900,
             ),
           ),
           const Spacer(),
@@ -130,8 +132,10 @@ class CartView extends StatelessWidget {
                           flex: 4,
                           child: Text(
                             "19 Lt ${_cartViewModel.cart[index].brand} Damacana Su",
-                            style: context.textTheme.bodyText1!
-                                .copyWith(color: context.colors.primary),
+                            style: context.textTheme.bodyText1!.copyWith(
+                              color: context.colors.primary,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
                         const Spacer(),
@@ -139,7 +143,7 @@ class CartView extends StatelessWidget {
                           flex: 3,
                           child: Text(
                             "${_cartViewModel.cart[index].price} Tl",
-                            style: context.textTheme.bodyText2!
+                            style: context.textTheme.caption!
                                 .copyWith(color: context.colors.primary),
                           ),
                         ),
@@ -183,8 +187,9 @@ class CartView extends StatelessWidget {
                                     child: Text(
                                       "${_cartViewModel.cart[index].count}",
                                       style:
-                                          context.textTheme.headline6!.copyWith(
+                                          context.textTheme.bodyText1!.copyWith(
                                         color: context.colors.primary,
+                                        fontWeight: FontWeight.bold,
                                       ),
                                       textAlign: TextAlign.center,
                                     ),
@@ -244,8 +249,10 @@ class CartView extends StatelessWidget {
           child: Consumer<CartViewModel>(builder: (_, _cartViewModel, __) {
         return Text(
           "TOPLAM TUTAR: ${_cartViewModel.total}",
-          style: context.textTheme.bodyText1!
-              .copyWith(color: context.colors.primaryVariant),
+          style: context.textTheme.subtitle1!.copyWith(
+            color: context.colors.primaryVariant,
+            fontWeight: FontWeight.bold,
+          ),
         );
       })),
     );
@@ -258,8 +265,10 @@ class CartView extends StatelessWidget {
           child: BlueElevatedButton(
               child: Text(
                 "SİPARİŞİ ONAYLA",
-                style: context.textTheme.headline6!
-                    .copyWith(color: context.colors.primary),
+                style: context.textTheme.headline6!.copyWith(
+                  color: context.colors.primary,
+                  fontWeight: FontWeight.w900,
+                ),
               ),
               onPressed: () {}),
         ),
