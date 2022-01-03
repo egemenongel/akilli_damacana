@@ -57,8 +57,6 @@ class _HomeViewState extends State<HomeView> {
                     if (context.read<CartViewModel>().cart.contains(model) ==
                         false) {
                       context.read<CartViewModel>().addOrder(model);
-                    } else {
-                      context.read<CartViewModel>().increment(model);
                     }
                   },
                   child: Container(
@@ -89,19 +87,27 @@ class _HomeViewState extends State<HomeView> {
                         context.read<CartViewModel>().cart.contains(model) ==
                                 false
                             ? const SizedBox()
-                            : Center(
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text(
+                            : Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  const Spacer(
+                                    flex: 4,
+                                  ),
+                                  Expanded(
+                                    flex: 9,
+                                    child: Text(
                                       "+${model.count}",
                                       style:
                                           context.textTheme.headline4!.copyWith(
                                         color: context.colors.primary,
+                                        fontSize: 40.0,
                                         fontWeight: FontWeight.w900,
                                       ),
                                     ),
-                                    Row(
+                                  ),
+                                  Expanded(
+                                    flex: 8,
+                                    child: Row(
                                       children: [
                                         const Spacer(
                                           flex: 1,
@@ -170,9 +176,10 @@ class _HomeViewState extends State<HomeView> {
                                           flex: 1,
                                         ),
                                       ],
-                                    )
-                                  ],
-                                ),
+                                    ),
+                                  ),
+                                  const Spacer(),
+                                ],
                               ),
                       ],
                     ),
