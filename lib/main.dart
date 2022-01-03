@@ -1,4 +1,5 @@
 import 'package:akilli_damacana/core/components/custom_bottom_nav_bar.dart';
+import 'package:akilli_damacana/features/auth/splash/splash_view.dart';
 import 'package:akilli_damacana/features/home/cart/viewmodel/cart_viewmodel.dart';
 import 'package:akilli_damacana/core/theme/app_theme.dart';
 import 'package:akilli_damacana/features/auth/login/view/login_view.dart';
@@ -24,7 +25,8 @@ class MyApp extends StatelessWidget {
       theme: appTheme,
       debugShowCheckedModeBanner: false,
       routes: {
-        "/": (context) => LoginView(),
+        "/": (context) => const SplashView(),
+        "/login": (context) => LoginView(),
         "/home": (context) => const CustomBottomNavBar(),
       },
     );
