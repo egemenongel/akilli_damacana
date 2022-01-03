@@ -1,7 +1,8 @@
+import 'package:akilli_damacana/core/components/custom_app_bar.dart';
+import 'package:akilli_damacana/core/components/hamburger_menu.dart';
 import 'package:akilli_damacana/features/_product/destinations/destination_model.dart';
 import 'package:akilli_damacana/features/_product/destinations/destinations.dart';
-import 'package:akilli_damacana/features/_product/widgets/custom_app_bar.dart';
-import 'package:akilli_damacana/features/_product/widgets/hamburger_menu.dart';
+
 import 'package:akilli_damacana/features/_product/destinations/routes.dart';
 import 'package:flutter/material.dart';
 
