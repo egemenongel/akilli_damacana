@@ -8,6 +8,9 @@ extension MediaQueryExtension on BuildContext {
   double get height => mediaQuery.size.height;
   double get width => mediaQuery.size.width;
 
+  double get screenHeight =>
+      mediaQuery.size.height - kToolbarHeight - kToolbarHeight * 1.2;
+
   double get lowValue => height * 0.01;
   double get normalValue => height * 0.02;
   double get mediumValue => height * 0.04;
