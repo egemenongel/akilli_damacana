@@ -1,12 +1,17 @@
 import 'package:akilli_damacana/core/extension/context_extension.dart';
 import 'package:akilli_damacana/features/_product/constants/company_logos.dart';
+import 'package:akilli_damacana/services/shared_preferences.dart';
 import 'package:flutter/material.dart';
 
 class HamburgerMenu extends StatelessWidget {
-  const HamburgerMenu({
+  HamburgerMenu({
     Key? key,
+    required this.setIndex,
+    required this.selectedIndex,
   }) : super(key: key);
-
+  final shared = SharedPreferencesService();
+  final Function(int) setIndex;
+  final int selectedIndex;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -26,7 +31,10 @@ class HamburgerMenu extends StatelessWidget {
                         "MENU",
                       ),
                       trailing: IconButton(
-                          onPressed: () {}, icon: const Icon(Icons.clear)),
+                          onPressed: () {
+                            shared.deleteToken();
+                          },
+                          icon: const Icon(Icons.clear)),
                     ),
                     decoration: BoxDecoration(
                       color: context.colors.secondary,
@@ -48,7 +56,7 @@ class HamburgerMenu extends StatelessWidget {
                       flex: 4,
                       child: ListTile(
                           dense: true,
-                          selected: true,
+                          selected: selectedIndex == 2 ? true : false,
                           title: Padding(
                             padding: context.paddingNormalHorizontal,
                             child: const Text(
@@ -56,6 +64,7 @@ class HamburgerMenu extends StatelessWidget {
                             ),
                           ),
                           onTap: () {
+                            setIndex(2);
                             Navigator.pop(context);
                           }),
                     ),
@@ -68,6 +77,7 @@ class HamburgerMenu extends StatelessWidget {
               Expanded(
                 flex: 4,
                 child: ListTile(
+                    selected: selectedIndex == 0 ? true : false,
                     dense: true,
                     title: Padding(
                       padding: context.paddingNormalHorizontal,
@@ -76,6 +86,7 @@ class HamburgerMenu extends StatelessWidget {
                       ),
                     ),
                     onTap: () {
+                      setIndex(0);
                       Navigator.pop(context);
                     }),
               ),
@@ -90,6 +101,7 @@ class HamburgerMenu extends StatelessWidget {
                       ),
                     ),
                     onTap: () {
+                      setIndex(2);
                       Navigator.pop(context);
                     }),
               ),

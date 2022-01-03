@@ -34,7 +34,10 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar>
           );
         }).toList(),
       ),
-      endDrawer: const HamburgerMenu(),
+      endDrawer: HamburgerMenu(
+        setIndex: _onItemTapped,
+        selectedIndex: _selectedIndex,
+      ),
       bottomNavigationBar: BottomNavigationBar(
         items: destinations.map((Destination destination) {
           return BottomNavigationBarItem(
