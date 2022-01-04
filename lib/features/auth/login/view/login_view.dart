@@ -59,9 +59,12 @@ class _LoginViewState extends State<LoginView> {
           child: Form(
             child: Column(
               children: [
-                Expanded(child: buildLogo()),
                 const Spacer(
-                  flex: 32,
+                  flex: 15,
+                ),
+                Expanded(flex: 32, child: buildLogo()),
+                const Spacer(
+                  flex: 50,
                 ),
                 Expanded(
                   flex: 15,
