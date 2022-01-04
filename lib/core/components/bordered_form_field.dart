@@ -42,7 +42,7 @@ class BorderedFormField extends StatelessWidget {
           ),
         ),
         errorStyle: const TextStyle(
-          fontSize: 8,
+          fontSize: 12,
         ),
         labelText: labelText,
         labelStyle: TextStyle(
