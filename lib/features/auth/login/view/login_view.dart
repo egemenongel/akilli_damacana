@@ -18,6 +18,7 @@ class LoginView extends StatefulWidget {
 }
 
 class _LoginViewState extends State<LoginView> {
+  final _formKey = GlobalKey<FormState>();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   String? token;
@@ -56,6 +57,7 @@ class _LoginViewState extends State<LoginView> {
           padding: EdgeInsets.symmetric(
               horizontal: context.highValue, vertical: context.normalValue),
           child: Form(
+            key: _formKey,
             child: Column(
               children: [
                 const Spacer(
@@ -157,12 +159,14 @@ class _LoginViewState extends State<LoginView> {
     return WhiteElevatedButton(
       child: const Text("Giriş Yap"),
       onPressed: () async {
-        var response = await widget.restApiService
-            .login(emailController.text, passwordController.text);
-        if (response is UserModel) {
-          Navigator.pushNamed(context, "/home", arguments: response);
-        } else {
-          log("$response");
+        if (_formKey.currentState!.validate()) {
+          var response = await widget.restApiService
+              .login(emailController.text, passwordController.text);
+          if (response is UserModel) {
+            Navigator.pushNamed(context, "/home", arguments: response);
+          } else {
+            log("$response");
+          }
         }
       },
       padding: context.paddingNormal,
