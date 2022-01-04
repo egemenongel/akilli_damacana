@@ -51,4 +51,10 @@ class CartViewModel extends ChangeNotifier {
     }
     return CartModel(cart: cartItems, price: total);
   }
+
+  clearCart() {
+    cart.clear();
+    sumProducts();
+    notifyListeners();
+  }
 }

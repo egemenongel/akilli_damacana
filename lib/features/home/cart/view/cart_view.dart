@@ -301,8 +301,17 @@ class CartView extends StatelessWidget {
                     fontWeight: FontWeight.w900,
                   ),
                 ),
-                onPressed: () {
-                  apiService.createOrder(_cartViewModel.order());
+                onPressed: () async {
+                  if (_cartViewModel.cart.isNotEmpty) {
+                    Navigator.pushNamed(context, "/orderSuccesful");
+                    Future.delayed(const Duration(milliseconds: 2000), () {
+                      Navigator.pop(context);
+                    });
+                    context.read<CartViewModel>().clearCart();
+                  } else {
+                    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                        content: Text("Lüften önce ürün ekleyin!")));
+                  }
                 });
           }),
         ),

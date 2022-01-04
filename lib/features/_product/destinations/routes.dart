@@ -1,3 +1,5 @@
+import 'package:akilli_damacana/features/home/succesful_order/succesful_order_view.dart';
+
 import 'destination_model.dart';
 import '../../home/root/root_view.dart';
 import 'package:flutter/material.dart';
@@ -22,6 +24,8 @@ class _RoutesState extends State<Routes> {
                 return RootView(
                   destination: widget.destination,
                 );
+              case "/orderSuccesful":
+                return const SuccesfulOrder();
               default:
                 return RootView(
                   destination: widget.destination,
