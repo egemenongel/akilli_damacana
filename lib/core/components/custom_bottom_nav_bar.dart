@@ -1,10 +1,10 @@
+import 'package:flutter/material.dart';
+
+import '../../features/home/navigation_view/destination_model.dart';
+import '../../features/home/navigation_view/destinations.dart';
+import '../../features/home/navigation_view/routes.dart';
 import 'custom_app_bar.dart';
 import 'hamburger_menu.dart';
-import '../../features/_product/destinations/destination_model.dart';
-import '../../features/_product/destinations/destinations.dart';
-
-import '../../features/_product/destinations/routes.dart';
-import 'package:flutter/material.dart';
 
 class CustomBottomNavBar extends StatefulWidget {
   const CustomBottomNavBar({Key? key}) : super(key: key);

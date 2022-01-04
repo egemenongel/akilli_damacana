@@ -1,10 +1,11 @@
-import 'core/components/custom_bottom_nav_bar.dart';
-import 'features/auth/splash/splash_view.dart';
-import 'features/home/cart/viewmodel/cart_viewmodel.dart';
-import 'core/theme/app_theme.dart';
-import 'features/auth/login/view/login_view.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import 'core/components/custom_bottom_nav_bar.dart';
+import 'core/theme/app_theme.dart';
+import 'features/auth/login/view/login_view.dart';
+import 'features/auth/splash/splash_view.dart';
+import 'features/home/cart/viewmodel/cart_viewmodel.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();

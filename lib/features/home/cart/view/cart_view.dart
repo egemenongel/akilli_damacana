@@ -1,10 +1,11 @@
-import '../../../../core/components/blue_elevated_button.dart';
-import '../viewmodel/cart_viewmodel.dart';
-import '../../../../core/extension/context_extension.dart';
-import '../../../../services/rest_api_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
+
+import '../../../../core/components/blue_elevated_button.dart';
+import '../../../../core/extension/context_extension.dart';
+import '../../../../services/rest_api_service.dart';
+import '../viewmodel/cart_viewmodel.dart';
 
 class CartView extends StatelessWidget {
   CartView({Key? key}) : super(key: key);

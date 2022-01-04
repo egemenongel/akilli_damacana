@@ -1,7 +1,7 @@
-import 'package:akilli_damacana/features/home/succesful_order/succesful_order_view.dart';
+import '../succesful_order/succesful_order_view.dart';
 
 import 'destination_model.dart';
-import '../../home/root/root_view.dart';
+import 'root_view.dart';
 import 'package:flutter/material.dart';
 
 class Routes extends StatefulWidget {

@@ -1,16 +1,15 @@
 import 'dart:developer';
-
 import 'dart:io';
+
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:image_picker/image_picker.dart';
 
 import '../../../../core/components/blue_elevated_button.dart';
 import '../../../../core/components/bordered_form_field.dart';
 import '../../../../core/extension/context_extension.dart';
-
-import '../model/profile_model.dart';
 import '../../../../services/rest_api_service.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:image_picker/image_picker.dart';
+import '../model/profile_model.dart';
 
 class ProfileView extends StatefulWidget {
   const ProfileView({Key? key}) : super(key: key);

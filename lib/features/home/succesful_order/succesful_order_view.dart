@@ -1,7 +1,8 @@
-import 'package:akilli_damacana/core/components/blue_elevated_button.dart';
-import 'package:akilli_damacana/core/extension/context_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
+import '../../../core/components/blue_elevated_button.dart';
+import '../../../core/extension/context_extension.dart';
 
 class SuccesfulOrder extends StatelessWidget {
   const SuccesfulOrder({Key? key}) : super(key: key);

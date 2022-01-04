@@ -1,14 +1,13 @@
 import 'dart:developer';
 
+import 'package:flutter/material.dart';
+
 import '../../../../core/components/bordered_form_field.dart';
 import '../../../../core/components/white_elevated_button.dart';
 import '../../../../core/extension/context_extension.dart';
-
-import '../model/login_response_model.dart';
-
 import '../../../../services/rest_api_service.dart';
 import '../../../../services/shared_preferences.dart';
-import 'package:flutter/material.dart';
+import '../model/login_response_model.dart';
 
 class LoginView extends StatefulWidget {
   LoginView({Key? key}) : super(key: key);

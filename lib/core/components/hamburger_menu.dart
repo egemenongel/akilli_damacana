@@ -1,7 +1,8 @@
-import '../extension/context_extension.dart';
-import '../../features/_product/constants/company_logos.dart';
-import '../../services/shared_preferences.dart';
 import 'package:flutter/material.dart';
+
+import '../../services/shared_preferences.dart';
+import '../constants/company_logos.dart';
+import '../extension/context_extension.dart';
 
 class HamburgerMenu extends StatelessWidget {
   HamburgerMenu({

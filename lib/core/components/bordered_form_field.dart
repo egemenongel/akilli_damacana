@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import '../extension/context_extension.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
+import '../extension/context_extension.dart';
 
 class BorderedFormField extends StatelessWidget {
   const BorderedFormField(
