@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:akilli_damacana/core/constants/gradients.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../../../../core/components/blue_elevated_button.dart';
@@ -178,15 +179,25 @@ class _ProfileViewState extends State<ProfileView> {
             child: Row(
               children: [
                 const Expanded(
-                    flex: 8,
+                    flex: 7,
                     child: BorderedFormField(
                       keyboardType: TextInputType.number,
                       labelText: "Tüketilen Su (Lt)",
-                      textInputAction: TextInputAction.next,
+                      textInputAction: TextInputAction.done,
                       assetPath: "assets/icons/personal.svg",
                     )),
                 const Spacer(),
-                Expanded(flex: 2, child: TextFormField() /*Dropdown*/),
+                Expanded(
+                    flex: 3,
+                    child: BlueElevatedButton(
+                      child: Row(
+                        children: [
+                          const Text("4.5LT"),
+                          SvgPicture.asset("assets/icons/bardak.svg"),
+                        ],
+                      ),
+                      onPressed: () {},
+                    )),
               ],
             ),
           ),
