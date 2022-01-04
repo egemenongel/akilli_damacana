@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:akilli_damacana/core/extension/context_extension.dart';
+import '../extension/context_extension.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class BorderedFormField extends StatelessWidget {
@@ -39,6 +39,9 @@ class BorderedFormField extends StatelessWidget {
           borderSide: BorderSide(
             color: context.colors.primary,
           ),
+        ),
+        errorStyle: const TextStyle(
+          fontSize: 8,
         ),
         labelText: labelText,
         labelStyle: TextStyle(
