@@ -1,3 +1,4 @@
+import 'package:akilli_damacana/core/constants/gradients.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -37,18 +38,8 @@ class SuccesfulOrder extends StatelessWidget {
             ),
           ],
         ),
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              colors: [
-                Color(0xff118BBF),
-                Color(0xff05B4FF),
-              ],
-              stops: [
-                0,
-                0.6325,
-              ]),
+        decoration: BoxDecoration(
+          gradient: mainGradient,
         ),
       ),
     );
@@ -60,14 +51,7 @@ class SuccesfulOrder extends StatelessWidget {
       decoration: BoxDecoration(
         color: context.colors.primary,
         borderRadius: BorderRadius.all(context.lowRadius),
-        gradient: const LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          colors: [
-            Color(0xffE2F2FC),
-            Color(0xffA1D2F1),
-          ],
-        ),
+        gradient: succesfulOrderGradient,
       ),
       child: Column(
         children: [

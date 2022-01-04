@@ -1,4 +1,6 @@
 import 'dart:async';
+import 'package:akilli_damacana/core/constants/gradients.dart';
+
 import '../../../core/extension/context_extension.dart';
 import '../login/view/login_view.dart';
 import 'package:flutter/material.dart';
@@ -44,22 +46,9 @@ class _SplashViewState extends State<SplashView> with TickerProviderStateMixin {
             ),
           ],
         ),
-        decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              colors: [
-                Color(0xffA1D2F1),
-                Color(0xffE2F2FC),
-                Color(0xff9FD1F1),
-              ],
-              stops: [
-                0,
-                0.3167,
-                1,
-              ],
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-            ),
-            image: DecorationImage(
+        decoration: BoxDecoration(
+            gradient: secondaryGradient,
+            image: const DecorationImage(
                 alignment: Alignment(0, 5),
                 image: AssetImage("assets/images/girissonrasi.png"))),
       ),

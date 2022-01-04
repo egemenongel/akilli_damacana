@@ -1,6 +1,7 @@
 import 'dart:developer';
 import 'dart:io';
 
+import 'package:akilli_damacana/core/constants/gradients.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
@@ -60,19 +61,7 @@ class _ProfileViewState extends State<ProfileView> {
                 ),
                 child: buildForm(context),
               ),
-              decoration: const BoxDecoration(
-                gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: [
-                      Color(0xff118BBF),
-                      Color(0xff05B4FF),
-                    ],
-                    stops: [
-                      0,
-                      0.6325,
-                    ]),
-              ),
+              decoration: BoxDecoration(gradient: mainGradient),
             ),
           );
         });

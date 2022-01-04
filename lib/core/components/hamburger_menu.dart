@@ -1,3 +1,4 @@
+import 'package:akilli_damacana/core/constants/gradients.dart';
 import 'package:flutter/material.dart';
 
 import '../../services/shared_preferences.dart';
@@ -152,10 +153,7 @@ class HamburgerMenu extends StatelessWidget {
                           borderRadius: BorderRadius.all(
                             context.lowRadius,
                           ),
-                          gradient: const RadialGradient(
-                            stops: [0, 1],
-                            colors: [Color(0xffffffff), Color(0xffD6EBF4)],
-                          ),
+                          gradient: productGradient,
                           border: Border.all(
                             width: 1,
                             color: const Color(0xff94C11F),

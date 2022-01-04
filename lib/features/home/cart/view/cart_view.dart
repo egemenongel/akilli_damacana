@@ -1,3 +1,4 @@
+import 'package:akilli_damacana/core/constants/gradients.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
@@ -21,18 +22,7 @@ class CartView extends StatelessWidget {
         Expanded(
           flex: 10,
           child: Container(
-            decoration: const BoxDecoration(
-                gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: [
-                  Color(0xff118BBF),
-                  Color(0xff05B4FF),
-                ],
-                    stops: [
-                  0,
-                  0.6325,
-                ])),
+            decoration: BoxDecoration(gradient: mainGradient),
             child: Padding(
               padding: context.paddingMedium,
               child: Column(
@@ -174,10 +164,7 @@ class CartView extends StatelessWidget {
           borderRadius: BorderRadius.all(
             context.lowRadius,
           ),
-          gradient: const RadialGradient(
-            stops: [0, 1],
-            colors: [Color(0xffffffff), Color(0xffD6EBF4)],
-          ),
+          gradient: productGradient,
           border: Border.all(
             width: 1,
             color: const Color(0xff94C11F),

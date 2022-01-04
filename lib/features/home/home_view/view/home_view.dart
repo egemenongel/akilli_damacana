@@ -1,3 +1,5 @@
+import 'package:akilli_damacana/core/constants/gradients.dart';
+
 import '../../cart/viewmodel/cart_viewmodel.dart';
 import '../../../../core/extension/context_extension.dart';
 import '../model/products_list_model.dart';
@@ -38,22 +40,9 @@ class _HomeViewState extends State<HomeView> {
         }
         var models = snapshot.data.data!.products!.data!;
         return Container(
-          decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                colors: [
-                  Color(0xffA1D2F1),
-                  Color(0xffE2F2FC),
-                  Color(0xffA1D2F1),
-                ],
-                stops: [
-                  0,
-                  0.3167,
-                  1,
-                ],
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-              ),
-              image: DecorationImage(
+          decoration: BoxDecoration(
+              gradient: secondaryGradient,
+              image: const DecorationImage(
                   image: AssetImage("assets/images/background.png"),
                   alignment: Alignment.bottomCenter,
                   opacity: 1)),
