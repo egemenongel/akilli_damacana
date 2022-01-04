@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:akilli_damacana/core/extension/context_extension.dart';
+import '../extension/context_extension.dart';
 
 class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
   const CustomAppBar({Key? key})

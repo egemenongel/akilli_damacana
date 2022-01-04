@@ -1,5 +1,5 @@
-import 'package:akilli_damacana/features/_product/destinations/destination_model.dart';
-import 'package:akilli_damacana/features/home/root/root_view.dart';
+import 'destination_model.dart';
+import '../../home/root/root_view.dart';
 import 'package:flutter/material.dart';
 
 class Routes extends StatefulWidget {

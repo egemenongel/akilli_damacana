@@ -1,6 +1,6 @@
-import 'package:akilli_damacana/core/extension/context_extension.dart';
-import 'package:akilli_damacana/features/_product/constants/company_logos.dart';
-import 'package:akilli_damacana/services/shared_preferences.dart';
+import '../extension/context_extension.dart';
+import '../../features/_product/constants/company_logos.dart';
+import '../../services/shared_preferences.dart';
 import 'package:flutter/material.dart';
 
 class HamburgerMenu extends StatelessWidget {

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:akilli_damacana/core/extension/context_extension.dart';
+import '../extension/context_extension.dart';
 
 class WhiteElevatedButton extends StatelessWidget {
   const WhiteElevatedButton(

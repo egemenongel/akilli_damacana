@@ -1,5 +1,6 @@
-import 'package:akilli_damacana/features/_product/destinations/destination_model.dart';
 import 'package:flutter/material.dart';
+
+import '../../_product/destinations/destination_model.dart';
 
 class RootView extends StatelessWidget {
   const RootView({Key? key, required this.destination}) : super(key: key);
