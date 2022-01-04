@@ -1,13 +1,13 @@
 import 'dart:developer';
 
-import 'package:akilli_damacana/core/components/bordered_form_field.dart';
-import 'package:akilli_damacana/core/components/white_elevated_button.dart';
-import 'package:akilli_damacana/core/extension/context_extension.dart';
+import '../../../../core/components/bordered_form_field.dart';
+import '../../../../core/components/white_elevated_button.dart';
+import '../../../../core/extension/context_extension.dart';
 
-import 'package:akilli_damacana/features/auth/login/model/login_response_model.dart';
+import '../model/login_response_model.dart';
 
-import 'package:akilli_damacana/services/rest_api_service.dart';
-import 'package:akilli_damacana/services/shared_preferences.dart';
+import '../../../../services/rest_api_service.dart';
+import '../../../../services/shared_preferences.dart';
 import 'package:flutter/material.dart';
 
 class LoginView extends StatefulWidget {
@@ -28,21 +28,8 @@ class _LoginViewState extends State<LoginView> {
     rememberMe();
   }
 
-  rememberMe() async {
-    var token = await widget.sharedService.getToken();
-    if (token != null) {
-      Future(() {
-        Navigator.pushReplacementNamed(
-          context,
-          "/home",
-        );
-      });
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
-    final isKeyboardOpen = context.mediaQuery.viewInsets.bottom != 0;
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
@@ -72,37 +59,20 @@ class _LoginViewState extends State<LoginView> {
           child: Form(
             child: Column(
               children: [
-                Expanded(
-                    flex: isKeyboardOpen == false ? 52 : 42,
-                    child: Image.asset(
-                      "assets/images/girislogosu.png",
-                    )),
+                Expanded(child: buildLogo()),
                 const Spacer(
                   flex: 32,
                 ),
                 Expanded(
                   flex: 15,
-                  child: BorderedFormField(
-                    keyboardType: TextInputType.visiblePassword,
-                    labelText: "Kullanıcı adı",
-                    assetPath: "assets/icons/personal.svg",
-                    textInputAction: TextInputAction.next,
-                    textEditingController: emailController,
-                  ),
+                  child: buildEmailField(),
                 ),
                 const Spacer(
                   flex: 3,
                 ),
                 Expanded(
                   flex: 15,
-                  child: BorderedFormField(
-                    keyboardType: TextInputType.visiblePassword,
-                    labelText: "Şifre",
-                    assetPath: "assets/icons/password.svg",
-                    textInputAction: TextInputAction.done,
-                    textEditingController: passwordController,
-                    isObscured: true,
-                  ),
+                  child: buildPasswordField(),
                 ),
                 const Spacer(
                   flex: 1,
@@ -112,20 +82,7 @@ class _LoginViewState extends State<LoginView> {
                   child: Row(
                     children: [
                       Expanded(
-                        child: WhiteElevatedButton(
-                          child: const Text("Giriş Yap"),
-                          onPressed: () async {
-                            var response = await widget.restApiService.login(
-                                emailController.text, passwordController.text);
-                            if (response is UserModel) {
-                              Navigator.pushNamed(context, "/home",
-                                  arguments: response);
-                            } else {
-                              log("$response");
-                            }
-                          },
-                          padding: context.paddingNormal,
-                        ),
+                        child: buildLoginButton(context),
                       ),
                     ],
                   ),
@@ -139,24 +96,14 @@ class _LoginViewState extends State<LoginView> {
                     children: [
                       Expanded(
                         flex: 10,
-                        child: WhiteElevatedButton(
-                          child: const Text(
-                            "Kayıt Ol",
-                          ),
-                          onPressed: () {},
-                          padding: context.paddingLow,
-                        ),
+                        child: buildRegisterButton(context),
                       ),
                       const Spacer(
                         flex: 1,
                       ),
                       Expanded(
                         flex: 15,
-                        child: WhiteElevatedButton(
-                          child: const Text("Şifremi Unuttum"),
-                          onPressed: () {},
-                          padding: context.paddingLow,
-                        ),
+                        child: buildForgotPasswordButton(context),
                       ),
                     ],
                   ),
@@ -170,5 +117,83 @@ class _LoginViewState extends State<LoginView> {
         ),
       ),
     );
+  }
+
+  Image buildLogo() {
+    return Image.asset(
+      "assets/images/girislogosu.png",
+    );
+  }
+
+  BorderedFormField buildEmailField() {
+    return BorderedFormField(
+      keyboardType: TextInputType.visiblePassword,
+      labelText: "Kullanıcı adı",
+      assetPath: "assets/icons/personal.svg",
+      textInputAction: TextInputAction.next,
+      textEditingController: emailController,
+      validator: (val) => emailController.text.isEmpty
+          ? "Lütfen kullanıcı adınızı giriniz."
+          : null,
+    );
+  }
+
+  BorderedFormField buildPasswordField() {
+    return BorderedFormField(
+      keyboardType: TextInputType.visiblePassword,
+      labelText: "Şifre",
+      assetPath: "assets/icons/password.svg",
+      textInputAction: TextInputAction.done,
+      textEditingController: passwordController,
+      validator: (val) =>
+          passwordController.text.isEmpty ? "Lütfen şifrenizi giriniz." : null,
+      isObscured: true,
+    );
+  }
+
+  WhiteElevatedButton buildLoginButton(BuildContext context) {
+    return WhiteElevatedButton(
+      child: const Text("Giriş Yap"),
+      onPressed: () async {
+        var response = await widget.restApiService
+            .login(emailController.text, passwordController.text);
+        if (response is UserModel) {
+          Navigator.pushNamed(context, "/home", arguments: response);
+        } else {
+          log("$response");
+        }
+      },
+      padding: context.paddingNormal,
+    );
+  }
+
+  WhiteElevatedButton buildRegisterButton(BuildContext context) {
+    return WhiteElevatedButton(
+      child: const Text(
+        "Kayıt Ol",
+      ),
+      onPressed: () {},
+      padding: context.paddingLow,
+    );
+  }
+
+  WhiteElevatedButton buildForgotPasswordButton(BuildContext context) {
+    return WhiteElevatedButton(
+      child: const Text("Şifremi Unuttum"),
+      onPressed: () {},
+      padding: context.paddingLow,
+    );
+  }
+
+  rememberMe() async {
+    var token = await widget.sharedService.getToken();
+    if (token != null) {
+      Future(() {
+        Navigator.pushNamed(
+          context,
+          "/home",
+        );
+      });
+    }
   }
 }
