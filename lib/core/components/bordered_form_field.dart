@@ -46,6 +46,7 @@ class BorderedFormField extends StatelessWidget {
         labelText: labelText,
         labelStyle: TextStyle(
           color: context.colors.onSecondary,
+          fontSize: context.textTheme.subtitle1!.fontSize,
         ),
         prefixIcon: Padding(
           padding: context.paddingNormalHorizontal,
